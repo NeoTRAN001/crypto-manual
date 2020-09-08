@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
-import './HeaderComponent';
-import './CardInput';
+import './js/Components/HeaderComponent';
+import './js/Components/CardInput';
 
 export class CryptoManual extends LitElement {
 
@@ -10,8 +10,9 @@ export class CryptoManual extends LitElement {
 
   static get properties() {
     return {
-      title: { type: String },
-      page: { type: String },
+      encryption: { type: String },
+      inputs:     { type: Number },
+      result:     { type: Array },
     };
   }
 
