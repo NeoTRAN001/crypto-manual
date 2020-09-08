@@ -8,10 +8,31 @@ export class CryptoManual extends LitElement {
     return this;
   }
 
+  constructor() {
+    super();
+    this.encryption = 'Numerical Base';
+
+    this.inputs = [{
+      quantity: [{
+        'base': 16
+      }],
+      text: 'Default text'
+    }];
+
+    this.result = [{
+      quantity: [{
+        'base': 16
+      }],
+      text: 'Default text'
+    }];
+
+    console.log(this.result);
+  }
+
   static get properties() {
     return {
       encryption: { type: String },
-      inputs:     { type: Number },
+      inputs:     { type: Array },
       result:     { type: Array },
     };
   }
@@ -20,7 +41,7 @@ export class CryptoManual extends LitElement {
     return html`
       <header-component></header-component>
       <div class="container grid">
-        <card-input></card-input>
+        <card-input .encryption=${this.encryption}></card-input>
         <div></div>
       </div>
     `;
