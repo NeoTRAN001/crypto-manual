@@ -1,6 +1,7 @@
-import { LitElement, html, css } from 'lit-element';
+import { LitElement, html } from 'lit-element';
 import './js/Components/HeaderComponent';
 import './js/Components/CardInput';
+import './js/Components/CardOptions';
 
 export class CryptoManual extends LitElement {
 
@@ -42,7 +43,9 @@ export class CryptoManual extends LitElement {
       <header-component></header-component>
       <div class="container grid">
         <card-input .encryption=${this.encryption}></card-input>
-        <div></div>
+        <div class="grid-right">
+          <card-options></card-options>
+        </div>
       </div>
     `;
   }
