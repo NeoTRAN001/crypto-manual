@@ -8,7 +8,7 @@ export class CardOptions extends LitElement {
 
     render() {
         return html`
-        <div class="card text-center">
+        <div class="card">
             <div class="card-header">
                 <h4>
                     <i class="fas fa-book-dead"></i>

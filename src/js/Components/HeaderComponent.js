@@ -15,6 +15,7 @@ export class HeaderComponent extends LitElement {
                 animation-duration: 3s;
                 animation-iteration-count: infinite;
                 animation-direction: alternate;
+                color: #414141;
             }
 
             @keyframes authorAnimation {

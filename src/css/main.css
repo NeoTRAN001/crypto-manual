@@ -6,6 +6,16 @@
 
 .grid-right {
     display: grid;
-    grid-template-rows: 50% 50%;
-    margin-left: 5em;
+    grid-template-rows: 40% 50%;
+    margin-right: 5em;
 }
+
+@media (max-width: 850px) {
+    .grid {
+        grid-template-columns: 100%;
+    }
+
+    .grid-right {
+        margin: 2em 0 2em 0;
+    }
+  }
