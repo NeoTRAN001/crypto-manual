@@ -39,7 +39,7 @@ export class CardInput extends LitElement {
                      }
 
                     <div class="form-group">
-                        <textarea rows="6" class="form-control" placeholder="Your text"></textarea>
+                        <textarea rows="8" class="form-control" placeholder="Your text"></textarea>
                     </div>
                     <div class="form-group">
                         <button type="button" class="btn btn-info">
