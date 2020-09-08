@@ -3,3 +3,9 @@
     grid-template-columns: 50% 50%;
     margin-top: 1.5em;
 }
+
+.grid-right {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    margin-left: 5em;
+}
