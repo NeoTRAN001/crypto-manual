@@ -9,13 +9,15 @@ export class CardInput extends LitElement {
     constructor() {
         super();
         this.encryption = 'A1Z26';
+        this.inputs = [];
         this.more = false;
     }
     
     static get properties() {
         return {
             encryption: { type: String },
-            more: { type: Boolean }
+            more: { type: Boolean },
+            inputs: { type: Array }
         }
     }
 
@@ -35,7 +37,15 @@ export class CardInput extends LitElement {
                     <h4 class="card-title"><i class="fas fa-keyboard"></i> User Text</h4>
                     
                     ${this.more 
-                        ? html`` : html``
+                        ? html`` 
+                        : html`
+                            ${this.inputs.map(option => html`
+                            <div class="form-group">
+                                <label for="${option}">${option}</label>
+                                <input type="text" class="form-control" id="${option}" placeholder="Enter ${option}">
+                            </div>
+                            `)}
+                        `
                      }
 
                     <div class="form-group">
