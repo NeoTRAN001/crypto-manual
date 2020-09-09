@@ -14,16 +14,8 @@ export class CryptoManual extends LitElement {
   constructor() {
     super();
     this.encryption = 'A1Z26';
-
-    this.inputs = [{
-      quantity: [],
-      text: ''
-    }];
-
-    this.result = [{
-      quantity: [],
-      text: ''
-    }];
+    this.inputs = [];
+    this.result = [];
   }
 
   static get properties() {
@@ -34,23 +26,38 @@ export class CryptoManual extends LitElement {
     };
   }
 
+  selectedMethod(method) {
+    this.encryption = method;
+    this.inputs = [];
+
+    if(method == 'Escítala') 
+      this.inputs = ['Rows', 'Columns'];
+    else if (method == 'Vigenère')
+      this.inputs = ['Keyword'];
+    else if (method == 'Cesar')
+      this.inputs = ['Key'];
+    else if (method == 'NumericalBase')
+      this.inputs = ['NumericalBase'];
+    
+  }
+
   render() {
     return html`
       <header-component></header-component>
       
       <div class="container grid">
         <div class="grid-right">
-          <card-options></card-options>
+          <card-options @method="${m => this.selectedMethod(m.detail.method)}"></card-options>
           <card-result></card-result>
         </div>
-        <card-input .encryption=${this.encryption}></card-input>
+        <card-input 
+          .encryption=${this.encryption} 
+          .inputs=${this.inputs}
+          .more=${this.inputs.length ===  0}>
+        </card-input>
       </div>
-      
-      <div class="mt-4 alert alert-dismissible alert-primary">
-        Welcome to <strong>CryptoManual</strong>, a classic crypto website
-      </div>
-      
-      <crypto-info></crypto-info>
+
+      <crypto-info .encryption=${this.encryption}></crypto-info>
     `;
   }
 }
