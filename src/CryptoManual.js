@@ -13,23 +13,17 @@ export class CryptoManual extends LitElement {
 
   constructor() {
     super();
-    this.encryption = 'Numerical Base';
+    this.encryption = 'A1Z26';
 
     this.inputs = [{
-      quantity: [{
-        'base': 16
-      }],
-      text: 'Default text'
+      quantity: [],
+      text: ''
     }];
 
     this.result = [{
-      quantity: [{
-        'base': 16
-      }],
-      text: 'Default text'
+      quantity: [],
+      text: ''
     }];
-
-    console.log(this.result);
   }
 
   static get properties() {
