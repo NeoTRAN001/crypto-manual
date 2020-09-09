@@ -29,6 +29,20 @@ export class CardInput extends LitElement {
         `;
     }
 
+    _cipher() {
+        let message = this.querySelector('#message').value;
+        alert(message);
+    }
+
+    _decipher() {
+        let message = this.querySelector('#message').value;
+        alert(message);
+    }
+
+    _clean() {
+        this.querySelector('#message').value = '';
+    }
+
     render() {
         return html`
             <div class="card">
@@ -49,16 +63,16 @@ export class CardInput extends LitElement {
                      }
 
                     <div class="form-group">
-                        <textarea rows="8" class="form-control" placeholder="Your text"></textarea>
+                        <textarea id="message" rows="8" class="form-control" placeholder="Your text"></textarea>
                     </div>
                     <div class="form-group">
-                        <button type="button" class="btn btn-info">
-                        <i class="fas fa-eye-slash"></i> Cipher
+                        <button @click="${this._cipher}" type="button" class="btn btn-info">
+                            <i class="fas fa-eye-slash"></i> Cipher
                         </button>
-                        <button type="button" class="btn btn-dark">
+                        <button @click="${this._decipher} type="button" class="btn btn-dark">
                             <i class="fas fa-eye"></i> Decipher
                         </button>
-                        <button type="button" class="btn btn-warning">
+                        <button @click="${this._clean}" type="button" class="btn btn-warning">
                             <i class="fas fa-trash-alt"></i> Clear
                         </button>
                     </div>
