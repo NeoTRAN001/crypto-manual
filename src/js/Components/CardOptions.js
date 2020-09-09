@@ -7,7 +7,11 @@ export class CardOptions extends LitElement {
     }
 
     selectedMethod() {
-        console.log(this.querySelector('#selectMethods').value);
+        this.dispatchEvent(new CustomEvent('method', {
+            detail: { 
+                method: this.querySelector('#selectMethods').value 
+            }, bubbles: true, composed: true
+        }));
     }
 
     render() {
