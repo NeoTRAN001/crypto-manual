@@ -21,6 +21,7 @@ export class CryptoManual extends LitElement {
   static get properties() {
     return {
       encryption: { type: String },
+      result:     { type: String },
       inputs:     { type: Array },
       result:     { type: Array },
     };
@@ -37,8 +38,11 @@ export class CryptoManual extends LitElement {
     else if (method == 'Cesar')
       this.inputs = ['Key'];
     else if (method == 'NumericalBase')
-      this.inputs = ['NumericalBase'];
-    
+      this.inputs = ['NumericalBase'];    
+  }
+
+  messageResult(message) {
+    this.result = message;
   }
 
   render() {
@@ -48,12 +52,13 @@ export class CryptoManual extends LitElement {
       <div class="container grid">
         <div class="grid-right">
           <card-options @method="${m => this.selectedMethod(m.detail.method)}"></card-options>
-          <card-result></card-result>
+          <card-result .message=${this.result}></card-result>
         </div>
         <card-input 
           .encryption=${this.encryption} 
           .inputs=${this.inputs}
-          .more=${this.inputs.length ===  0}>
+          .more=${this.inputs.length ===  0}
+          @result="${r => this.messageResult(r.detail.message)}">
         </card-input>
       </div>
 
