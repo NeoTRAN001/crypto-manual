@@ -1,6 +1,12 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 
 export class CardResult extends LitElement {
+
+    static get properties() {
+        return {
+            message: { type: String }
+        }
+    }
 
     createRenderRoot() {
         return this;
@@ -13,7 +19,9 @@ export class CardResult extends LitElement {
                     <h4 class="card-title"><i class="fab fa-redhat"></i> Result</h4>
                     
                     <div class="form-group">
-                        <textarea rows="4" class="form-control" placeholder="Your text"></textarea>
+                        <textarea class="txt-result" rows="4" class="form-control" placeholder="Your text">
+                            ${this.message}
+                        </textarea>
                     </div>
 
                     <button type="button" class="btn btn-success">
