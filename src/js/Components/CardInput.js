@@ -1,4 +1,7 @@
 import { LitElement, html, css } from 'lit-element';
+import { CryptographyDictionary } from '../Scripts/CryptographyDictionary';
+
+const cryptography = new CryptographyDictionary();
 
 export class CardInput extends LitElement {
 
@@ -30,13 +33,22 @@ export class CardInput extends LitElement {
     }
 
     _cipher() {
-        let message = this.querySelector('#message').value;
-        alert(message);
+        const message = this.querySelector('#message').value;
+        const result = cryptography.main(message, this.encryption, this.inputs, true);
+        this._result(result);
     }
 
     _decipher() {
-        let message = this.querySelector('#message').value;
-        alert(message);
+        const message = this.querySelector('#message').value;
+        const result = cryptography.main(message, this.encryption, this.inputs, false);
+        this._result(result);
+    }
+
+    _result(message) {
+        this.dispatchEvent(new CustomEvent('result', {
+            detail: { message }, 
+            bubbles: true, composed: true
+        }));
     }
 
     _clean() {
